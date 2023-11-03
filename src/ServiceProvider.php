@@ -19,7 +19,7 @@ class ServiceProvider extends Provider
         
         $this->mergeConfigFrom(LCC_ROOT.'/config/cookieconsent.php', 'cookieconsent');
 
-        $this->app->singleton(CookiesRegistrar::class, function () {
+        $this->app->bind(CookiesRegistrar::class, function () {
             $registrar = new CookiesRegistrar();
             $registrar->essentials()->consent();
             return $registrar;
